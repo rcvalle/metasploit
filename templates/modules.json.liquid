@@ -1,0 +1,13 @@
+---
+permalink: modules.json
+---
+
+[
+{%- for module in site.data.modules %}
+  {
+    "name":      "{{ module.name }}",
+    "published": "{{ module.published | date: "%F" }}",
+    "updated":   "{{ module.updated | date: "%F" }}"
+  },
+{%- endfor %}
+]

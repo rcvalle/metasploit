@@ -1,0 +1,8 @@
+---
+permalink: modules.csv
+---
+
+Name,Published,Updated
+{%- for module in site.data.modules %}
+{{ module.name }},{{ module.published | date: "%F" }},{{ module.updated | date: "%F" }}
+{%- endfor %}
