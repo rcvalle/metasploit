@@ -34,7 +34,7 @@
     in code execution.
   name: auxiliary/server/dhclient_bash_env
   published: 2014-09-26 04:37:00.000000000 Z
-  updated: 2020-05-12 20:15:21.000000000 Z
+  updated: 2021-01-28 10:35:25.000000000 Z
   vulnerabilities:
   - CVE-2014-6271
 - description: This module exploits a missing authorization vulnerability in the "update_roles"
