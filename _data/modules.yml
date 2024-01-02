@@ -1,0 +1,322 @@
+---
+- description: This module exploits a logic error in OpenSSL by impersonating the
+    server and sending a specially-crafted chain of certificates, resulting in certain
+    checks on untrusted certificates to be bypassed on the client, allowing it to
+    use a valid leaf certificate as a CA certificate to sign a fake certificate. The
+    SSL/TLS session is then proxied to the server allowing the session to continue
+    normally and application data transmitted between the peers to be saved. The valid
+    leaf certificate must not contain the keyUsage extension or it must have at least
+    the keyCertSign bit set (see X509_check_issued function in crypto/x509v3/v3_purp.c);
+    otherwise; X509_verify_cert fails with X509_V_ERR_UNABLE_TO_GET_ISSUER_CERT_LOCALLY.
+    This module requires an active man-in-the-middle attack.
+  name: auxiliary/server/openssl_altchainsforgery_mitm_proxy
+  published: 2015-07-16 05:36:29.000000000 Z
+  updated: 2021-02-19 20:35:33.000000000 Z
+  vulnerabilities:
+  - CVE-2015-1793
+- description: This module exploits an incomplete internal state distinction in Java
+    Secure Socket Extension (JSSE) by impersonating the server and finishing the handshake
+    before the peers have authenticated themselves and instantiated negotiated security
+    parameters, resulting in a plaintext SSL/TLS session with the client. This plaintext
+    SSL/TLS session is then proxied to the server using a second SSL/TLS session from
+    the proxy to the server (or an alternate fake server) allowing the session to
+    continue normally and plaintext application data transmitted between the peers
+    to be saved. This module requires an active man-in-the-middle attack.
+  name: auxiliary/server/jsse_skiptls_mitm_proxy
+  published: 2015-06-09 02:41:17.000000000 Z
+  updated: 2020-05-30 02:27:48.000000000 Z
+  vulnerabilities:
+  - CVE-2014-6593
+- description: This module exploits the Shellshock vulnerability, a flaw in how the
+    Bash shell handles external environment variables. This module targets dhclient
+    by responding to DHCP requests with a malicious hostname, domainname, and URL
+    which are then passed to the configuration scripts as environment variables, resulting
+    in code execution.
+  name: auxiliary/server/dhclient_bash_env
+  published: 2014-09-26 04:37:00.000000000 Z
+  updated: 2021-01-28 10:35:25.000000000 Z
+  vulnerabilities:
+  - CVE-2014-6271
+- description: This module exploits a missing authorization vulnerability in the "update_roles"
+    action of "users" controller of Katello and Red Hat Satellite (Katello 1.5.0-14
+    and earlier) by changing the specified account to an administrator account.
+  name: auxiliary/admin/http/katello_satellite_priv_esc
+  published: 2014-03-25 02:44:44.000000000 Z
+  updated: 2023-02-08 14:30:08.000000000 Z
+  vulnerabilities:
+  - CVE-2013-2143
+- description: This module exploits a path traversal vulnerability in the "linuxpkgs"
+    action of "agent" controller of the Red Hat CloudForms Management Engine 5.1 (ManageIQ
+    Enterprise Virtualization Manager 5.0 and earlier). It uploads a fake controller
+    to the controllers directory of the Rails application with the encoded payload
+    as an action and sends a request to this action to execute the payload. Optionally,
+    it can also upload a routing file containing a route to the action. (Which is
+    not necessary, since the application already contains a general default route.)
+  name: exploit/linux/http/cfme_manageiq_evm_upload_exec
+  published: 2013-12-09 18:18:12.000000000 Z
+  updated: 2017-07-24 13:26:21.000000000 Z
+  vulnerabilities:
+  - CVE-2013-2068
+- description: This module exploits a SQL injection vulnerability in the "explorer"
+    action of "miq_policy" controller of the Red Hat CloudForms Management Engine
+    5.1 (ManageIQ Enterprise Virtualization Manager 5.0 and earlier) by changing the
+    password of the target account to the specified password.
+  name: auxiliary/admin/http/cfme_manageiq_evm_pass_reset
+  published: 2013-12-09 17:50:19.000000000 Z
+  updated: 2023-02-08 14:30:08.000000000 Z
+  vulnerabilities:
+  - CVE-2013-2050
+- description: This module exploits a mass assignment vulnerability in the 'create'
+    action of 'users' controller of Foreman and Red Hat OpenStack/Satellite (Foreman
+    1.2.0-RC1 and earlier) by creating an arbitrary administrator account. For this
+    exploit to work, your account must have 'create_users' permission (e.g., Manager
+    role).
+  name: auxiliary/admin/http/foreman_openstack_satellite_priv_esc
+  published: 2013-07-22 18:24:25.000000000 Z
+  updated: 2023-02-08 14:30:08.000000000 Z
+  vulnerabilities:
+  - CVE-2013-2113
+- description: This module exploits a code injection vulnerability in the 'create'
+    action of 'bookmarks' controller of Foreman and Red Hat OpenStack/Satellite (Foreman
+    1.2.0-RC1 and earlier).
+  name: exploit/linux/http/foreman_openstack_satellite_code_exec
+  published: 2013-07-16 15:07:31.000000000 Z
+  updated: 2017-07-24 13:26:21.000000000 Z
+  vulnerabilities:
+  - CVE-2013-2121
+- description: AIX SNMP Scanner Auxiliary Module
+  name: auxiliary/scanner/snmp/aix_version
+  published: 2009-07-28 04:48:36.000000000 Z
+  updated: 2017-07-24 13:26:21.000000000 Z
+  vulnerabilities: []
+- description: This module exploits a buffer overflow vulnerability in _tt_internal_realpath
+    function of the ToolTalk database server (rpc.ttdbserverd).
+  name: exploit/aix/rpc_ttdbserverd_realpath
+  published: 2009-06-23 03:49:25.000000000 Z
+  updated: 2020-10-02 16:38:06.000000000 Z
+  vulnerabilities:
+  - CVE-2009-2727
+- description: Connect back to attacker and spawn a command shell
+  name: payload/aix/ppc/shell_reverse_tcp
+  published: 2008-11-13 01:58:36.000000000 Z
+  updated: 2021-01-05 14:59:46.000000000 Z
+  vulnerabilities: []
+- description: Spawn a shell on an established connection
+  name: payload/aix/ppc/shell_find_port
+  published: 2008-11-13 01:58:36.000000000 Z
+  updated: 2021-01-05 14:59:46.000000000 Z
+  vulnerabilities: []
+- description: Listen for a connection and spawn a command shell
+  name: payload/aix/ppc/shell_bind_tcp
+  published: 2008-11-13 01:58:36.000000000 Z
+  updated: 2021-01-05 14:59:46.000000000 Z
+  vulnerabilities: []
+- description: Connect back to attacker and spawn a command shell
+  name: payload/linux/ppc64/shell_reverse_tcp
+  published: 2008-11-13 01:57:53.000000000 Z
+  updated: 2021-01-05 14:59:46.000000000 Z
+  vulnerabilities: []
+- description: Spawn a shell on an established connection
+  name: payload/linux/ppc64/shell_find_port
+  published: 2008-11-13 01:57:53.000000000 Z
+  updated: 2021-01-05 14:59:46.000000000 Z
+  vulnerabilities: []
+- description: Listen for a connection and spawn a command shell
+  name: payload/linux/ppc64/shell_bind_tcp
+  published: 2008-11-13 01:57:53.000000000 Z
+  updated: 2021-01-05 14:59:46.000000000 Z
+  vulnerabilities: []
+- description: Connect back to attacker and spawn a command shell
+  name: payload/linux/ppc/shell_reverse_tcp
+  published: 2008-11-13 01:57:53.000000000 Z
+  updated: 2021-01-05 14:59:46.000000000 Z
+  vulnerabilities: []
+- description: Spawn a shell on an established connection
+  name: payload/linux/ppc/shell_find_port
+  published: 2008-11-13 01:57:53.000000000 Z
+  updated: 2021-01-05 14:59:46.000000000 Z
+  vulnerabilities: []
+- description: Listen for a connection and spawn a command shell
+  name: payload/linux/ppc/shell_bind_tcp
+  published: 2008-11-13 01:57:53.000000000 Z
+  updated: 2021-01-05 14:59:46.000000000 Z
+  vulnerabilities: []
+- description: This module triggers a heap overflow in the LSA RPC service of the
+    Samba daemon. This module uses the TALLOC chunk overwrite method (credit Ramon
+    and Adriano), which only works with Samba versions 3.0.21-3.0.24. Additionally,
+    this module will not work when the Samba "log level" parameter is higher than
+    "2".
+  name: exploit/linux/samba/lsa_transnames_heap
+  published: 2008-10-19 21:03:39.000000000 Z
+  updated: 2020-10-02 16:38:06.000000000 Z
+  vulnerabilities:
+  - CVE-2007-2446
+- description: Connect back to attacker and spawn a command shell
+  name: payload/linux/x86/shell_reverse_tcp
+  published: 2008-10-19 21:03:39.000000000 Z
+  updated: 2022-11-04 00:33:03.000000000 Z
+  vulnerabilities: []
+- description: Spawn a shell on an established connection
+  name: payload/linux/x86/shell_find_port
+  published: 2008-10-19 21:03:39.000000000 Z
+  updated: 2021-01-05 14:59:46.000000000 Z
+  vulnerabilities: []
+- description: This module exploits a buffer overflow vulnerability in adm_build_path()
+    function of sadmind daemon. The distributed system administration daemon (sadmind)
+    is the daemon used by Solstice AdminSuite applications to perform distributed
+    system administration operations. The sadmind daemon is started automatically
+    by the inetd daemon whenever a request to invoke an operation is received. The
+    sadmind daemon process continues to run for 15 minutes after the last request
+    is completed, unless a different idle-time is specified with the -i command line
+    option. The sadmind daemon may be started independently from the command line,
+    for example, at system boot time. In this case, the -i option has no effect; sadmind
+    continues to run, even if there are no active requests.
+  name: exploit/solaris/sunrpc/sadmind_adm_build_path
+  published: 2008-10-14 14:22:34.000000000 Z
+  updated: 2020-10-02 16:38:06.000000000 Z
+  vulnerabilities:
+  - CVE-2008-4556
+- description: This module retrieves version of the services manager, version and
+    implementation of the InterBase server from InterBase Services Manager.
+  name: auxiliary/scanner/misc/ib_service_mgr_info
+  published: 2007-10-04 03:03:13.000000000 Z
+  updated: 2017-07-24 13:26:21.000000000 Z
+  vulnerabilities: []
+- description: This module exploits a stack buffer overflow in Borland InterBase by
+    sending a specially crafted service attach request.
+  name: exploit/windows/misc/ib_svc_attach
+  published: 2007-10-04 03:03:13.000000000 Z
+  updated: 2020-10-02 16:38:06.000000000 Z
+  vulnerabilities:
+  - CVE-2007-5243
+- description: This module exploits a stack buffer overflow in Borland InterBase by
+    sending a specially crafted create request.
+  name: exploit/windows/misc/ib_isc_create_database
+  published: 2007-10-04 03:03:13.000000000 Z
+  updated: 2020-10-02 16:38:06.000000000 Z
+  vulnerabilities:
+  - CVE-2007-5243
+- description: This module exploits a stack buffer overflow in Borland InterBase by
+    sending a specially crafted attach request.
+  name: exploit/windows/misc/ib_isc_attach_database
+  published: 2007-10-04 03:03:13.000000000 Z
+  updated: 2020-10-02 16:38:06.000000000 Z
+  vulnerabilities:
+  - CVE-2007-5243
+- description: This module exploits a stack buffer overflow in Borland InterBase by
+    sending a specially crafted service attach request.
+  name: exploit/windows/misc/fb_svc_attach
+  published: 2007-10-04 03:03:13.000000000 Z
+  updated: 2020-10-02 16:38:06.000000000 Z
+  vulnerabilities:
+  - CVE-2007-5243
+- description: This module exploits a stack buffer overflow in Borland InterBase by
+    sending a specially crafted create request.
+  name: exploit/windows/misc/fb_isc_create_database
+  published: 2007-10-04 03:03:13.000000000 Z
+  updated: 2020-10-02 16:38:06.000000000 Z
+  vulnerabilities:
+  - CVE-2007-5243
+- description: This module exploits a stack buffer overflow in Borland InterBase by
+    sending a specially crafted create request.
+  name: exploit/windows/misc/fb_isc_attach_database
+  published: 2007-10-04 03:03:13.000000000 Z
+  updated: 2020-10-02 16:38:06.000000000 Z
+  vulnerabilities:
+  - CVE-2007-5243
+- description: This module exploits a stack buffer overflow in Borland InterBase by
+    sending a specially crafted attach request.
+  name: exploit/linux/misc/ib_pwd_db_aliased
+  published: 2007-10-04 03:03:13.000000000 Z
+  updated: 2020-10-02 16:38:06.000000000 Z
+  vulnerabilities:
+  - CVE-2007-5243
+- description: This module exploits a stack buffer overflow in Borland InterBase by
+    sending a specially crafted attach request.
+  name: exploit/linux/misc/ib_open_marker_file
+  published: 2007-10-04 03:03:13.000000000 Z
+  updated: 2020-10-02 16:38:06.000000000 Z
+  vulnerabilities:
+  - CVE-2007-5244
+- description: This module exploits a stack buffer overflow in Borland InterBase by
+    sending a specially crafted create request.
+  name: exploit/linux/misc/ib_jrd8_create_database
+  published: 2007-10-04 03:03:13.000000000 Z
+  updated: 2020-10-02 16:38:06.000000000 Z
+  vulnerabilities:
+  - CVE-2007-5243
+- description: This module exploits a stack buffer overflow in Borland InterBase by
+    sending a specially crafted service attach request.
+  name: exploit/linux/misc/ib_inet_connect
+  published: 2007-10-04 03:03:13.000000000 Z
+  updated: 2020-10-02 16:38:06.000000000 Z
+  vulnerabilities:
+  - CVE-2007-5243
+- description: Listen for a connection and spawn a command shell
+  name: payload/linux/x86/shell_bind_tcp
+  published: 2007-07-31 02:10:49.000000000 Z
+  updated: 2021-01-05 14:59:46.000000000 Z
+  vulnerabilities: []
+- description: Connect back to attacker and spawn a command shell
+  name: payload/bsd/x86/shell_reverse_tcp
+  published: 2007-07-11 03:19:28.000000000 Z
+  updated: 2021-01-05 14:59:46.000000000 Z
+  vulnerabilities: []
+- description: Spawn a shell on an established connection
+  name: payload/bsd/x86/shell_find_port
+  published: 2007-07-11 03:19:28.000000000 Z
+  updated: 2021-01-05 14:59:46.000000000 Z
+  vulnerabilities: []
+- description: Listen for a connection and spawn a command shell
+  name: payload/bsd/x86/shell_bind_tcp
+  published: 2007-07-11 03:19:28.000000000 Z
+  updated: 2021-01-05 14:59:46.000000000 Z
+  vulnerabilities: []
+- description: This module triggers a heap overflow in the LSA RPC service of the
+    Samba daemon. This module uses the TALLOC chunk overwrite method (credit Ramon
+    and Adriano), which only works with Samba versions 3.0.21-3.0.24. Additionally,
+    this module will not work when the Samba "log level" parameter is higher than
+    "2".
+  name: exploit/solaris/samba/lsa_transnames_heap
+  published: 2007-07-08 04:11:53.000000000 Z
+  updated: 2020-10-02 16:38:06.000000000 Z
+  vulnerabilities:
+  - CVE-2007-2446
+- description: Connect back to attacker and spawn a command shell
+  name: payload/solaris/x86/shell_reverse_tcp
+  published: 2007-07-08 04:11:53.000000000 Z
+  updated: 2021-01-05 14:59:46.000000000 Z
+  vulnerabilities: []
+- description: Spawn a shell on an established connection
+  name: payload/solaris/x86/shell_find_port
+  published: 2007-07-08 04:11:53.000000000 Z
+  updated: 2021-01-05 14:59:46.000000000 Z
+  vulnerabilities: []
+- description: Listen for a connection and spawn a command shell
+  name: payload/solaris/x86/shell_bind_tcp
+  published: 2007-07-08 04:11:53.000000000 Z
+  updated: 2021-01-05 14:59:46.000000000 Z
+  vulnerabilities: []
+- description: Connect back to attacker and spawn a command shell
+  name: payload/osx/x86/shell_reverse_tcp
+  published: 2007-07-05 02:02:39.000000000 Z
+  updated: 2021-01-05 14:59:46.000000000 Z
+  vulnerabilities: []
+- description: Spawn a shell on an established connection
+  name: payload/osx/x86/shell_find_port
+  published: 2007-07-05 02:02:39.000000000 Z
+  updated: 2021-01-05 14:59:46.000000000 Z
+  vulnerabilities: []
+- description: This module triggers a heap overflow in the LSA RPC service of the
+    Samba daemon. This module uses the szone_free() to overwrite the size() or free()
+    pointer in initial_malloc_zones structure.
+  name: exploit/osx/samba/lsa_transnames_heap
+  published: 2007-07-05 01:41:39.000000000 Z
+  updated: 2020-10-02 16:38:06.000000000 Z
+  vulnerabilities:
+  - CVE-2007-2446
+- description: Listen for a connection and spawn a command shell
+  name: payload/osx/x86/shell_bind_tcp
+  published: 2007-07-05 01:41:39.000000000 Z
+  updated: 2021-01-05 14:59:46.000000000 Z
+  vulnerabilities: []

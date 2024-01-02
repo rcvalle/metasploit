@@ -1,0 +1,8 @@
+---
+permalink: modules.csv
+---
+
+name,published,updated,url
+{%- for module in site.data.modules %}
+{{ module.name }},{{ module.published | date: "%F" }},{{ module.updated | date: "%F" }},https://www.rapid7.com/db/modules/{{ module.name }}
+{%- endfor %}

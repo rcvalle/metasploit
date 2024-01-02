@@ -1,0 +1,11 @@
+---
+permalink: modules.yml
+---
+
+---
+{%- for module in site.data.modules %}
+- name:      {{ module.name }}
+  published: {{ module.published | date: "%F" }}
+  updated:   {{ module.updated | date: "%F" }}
+  url:       https://www.rapid7.com/db/modules/{{ module.name }}
+{%- endfor %}
