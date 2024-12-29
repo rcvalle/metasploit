@@ -1,0 +1,26 @@
+---
+permalink: modules.html
+---
+
+<table>
+  <colgroup>
+    <col span="1">
+    <col span="1">
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Published</th>
+      <th>Updated</th>
+    </tr>
+  </thead>
+  <tbody>
+  {%- for module in site.data.modules %}
+    <tr>
+      <td><a href="https://www.rapid7.com/db/modules/{{ module.name }}">{{ module.name }}</a></td>
+      <td>{{ module.published | date: "%F" }}</td>
+      <td>{{ module.updated | date: "%F" }}</td>
+    </tr>
+  {%- endfor %}
+  </tbody>
+</table>
