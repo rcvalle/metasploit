@@ -114,32 +114,32 @@
 - description: Connect back to attacker and spawn a command shell
   name: payload/linux/ppc64/shell_reverse_tcp
   published: 2008-11-13 01:57:53.000000000 Z
-  updated: 2021-01-05 14:59:46.000000000 Z
+  updated: 2025-01-14 14:31:03.000000000 Z
   vulnerabilities: []
 - description: Spawn a shell on an established connection
   name: payload/linux/ppc64/shell_find_port
   published: 2008-11-13 01:57:53.000000000 Z
-  updated: 2021-01-05 14:59:46.000000000 Z
+  updated: 2025-01-14 14:31:03.000000000 Z
   vulnerabilities: []
 - description: Listen for a connection and spawn a command shell
   name: payload/linux/ppc64/shell_bind_tcp
   published: 2008-11-13 01:57:53.000000000 Z
-  updated: 2021-01-05 14:59:46.000000000 Z
+  updated: 2025-01-14 14:31:03.000000000 Z
   vulnerabilities: []
 - description: Connect back to attacker and spawn a command shell
   name: payload/linux/ppc/shell_reverse_tcp
   published: 2008-11-13 01:57:53.000000000 Z
-  updated: 2021-01-05 14:59:46.000000000 Z
+  updated: 2024-12-19 17:13:55.000000000 Z
   vulnerabilities: []
 - description: Spawn a shell on an established connection
   name: payload/linux/ppc/shell_find_port
   published: 2008-11-13 01:57:53.000000000 Z
-  updated: 2021-01-05 14:59:46.000000000 Z
+  updated: 2024-12-19 17:13:55.000000000 Z
   vulnerabilities: []
 - description: Listen for a connection and spawn a command shell
   name: payload/linux/ppc/shell_bind_tcp
   published: 2008-11-13 01:57:53.000000000 Z
-  updated: 2021-01-05 14:59:46.000000000 Z
+  updated: 2024-12-19 17:13:55.000000000 Z
   vulnerabilities: []
 - description: This module triggers a heap overflow in the LSA RPC service of the
     Samba daemon. This module uses the TALLOC chunk overwrite method (credit Ramon
@@ -154,12 +154,12 @@
 - description: Connect back to attacker and spawn a command shell
   name: payload/linux/x86/shell_reverse_tcp
   published: 2008-10-19 21:03:39.000000000 Z
-  updated: 2022-11-04 00:33:03.000000000 Z
+  updated: 2025-01-14 14:31:03.000000000 Z
   vulnerabilities: []
 - description: Spawn a shell on an established connection
   name: payload/linux/x86/shell_find_port
   published: 2008-10-19 21:03:39.000000000 Z
-  updated: 2021-01-05 14:59:46.000000000 Z
+  updated: 2025-01-14 14:31:03.000000000 Z
   vulnerabilities: []
 - description: This module exploits a buffer overflow vulnerability in adm_build_path()
     function of sadmind daemon. The distributed system administration daemon (sadmind)
@@ -255,7 +255,7 @@
 - description: Listen for a connection and spawn a command shell
   name: payload/linux/x86/shell_bind_tcp
   published: 2007-07-31 02:10:49.000000000 Z
-  updated: 2021-01-05 14:59:46.000000000 Z
+  updated: 2025-01-14 14:31:03.000000000 Z
   vulnerabilities: []
 - description: Connect back to attacker and spawn a command shell
   name: payload/bsd/x86/shell_reverse_tcp
